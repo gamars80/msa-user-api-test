@@ -1,0 +1,35 @@
+
+spring:
+  profiles:
+    group:
+      local: local
+default:
+  string: default property
+
+---
+spring:
+  config.activate.on-profile: local
+  datasource:
+#    url: jdbc:mysql://localhost:3305/msa_test?useSSL=false&serverTimezone=UTC
+#    username: root
+#    password: 1234
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+    write:
+      hikari:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3305/msa_test?useSSL=false&serverTimezone=UTC
+        username: root
+        password: 1234
+    read:
+      hikari:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3305/msa_test?useSSL=false&serverTimezone=UTC
+        username: root
+        password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+
