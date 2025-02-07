@@ -1,13 +1,13 @@
 package com.example.msauserapitest.auth.provider;
 
+import com.example.msauserapitest.auth.provider.dto.AccessToken;
+import com.example.msauserapitest.auth.provider.dto.AccessTokenContent;
+import com.example.msauserapitest.auth.provider.dto.AccessTokenValidationResult;
+import com.example.msauserapitest.auth.utils.DateUtils;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
-import kr.co.gacha.auth.provider.dto.AccessToken;
-import kr.co.gacha.auth.provider.dto.AccessTokenContent;
-import kr.co.gacha.auth.provider.dto.AccessTokenValidationResult;
-import kr.co.gacha.auth.utils.DateUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 

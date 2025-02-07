@@ -1,10 +1,10 @@
 package com.example.msauserapitest.auth.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotBlank;
 
 @Getter
 @Builder

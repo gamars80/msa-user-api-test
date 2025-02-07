@@ -1,7 +1,7 @@
 package com.example.msauserapitest.auth.dto;
 
-import kr.co.gacha.user.dto.UserAccountDto;
-import kr.co.gacha.user.enums.JoinType;
+import com.example.msauserapitest.user.dto.UserAccountDto;
+import com.example.msauserapitest.user.enums.JoinType;
 import lombok.Getter;
 
 @Getter

@@ -1,9 +1,9 @@
 package com.example.msauserapitest.auth.dto;
 
-import kr.co.gacha.user.administrator.account.dto.AdminAccountDto;
-import kr.co.gacha.user.dto.UserAccountDto;
-import kr.co.gacha.user.enums.AccountType;
-import kr.co.gacha.user.enums.RoleType;
+
+import com.example.msauserapitest.user.dto.UserAccountDto;
+import com.example.msauserapitest.user.enums.AccountType;
+import com.example.msauserapitest.user.enums.RoleType;
 import lombok.Getter;
 
 @Getter
@@ -20,12 +20,6 @@ public class AccountFindResponse {
         user = new User(account.getUser().getId(), roleTypeOfUser);
     }
 
-    public AccountFindResponse(AdminAccountDto account, RoleType roleTypeOfUser) {
-        accountType = AccountType.ADMIN;
-        accountId = account.getId();
-        loginId = account.getLoginId();
-        user = new User(account.getUser().getId(), roleTypeOfUser);
-    }
 
     public AccountFindResponse () {
         accountType = AccountType.USER;

@@ -1,11 +1,11 @@
 package com.example.msauserapitest.auth.service;
 
-import kr.co.gacha.auth.dto.AuthenticatedAccountInfo;
-import kr.co.gacha.auth.dto.LoginRequest;
-import kr.co.gacha.auth.dto.TokenIssueResponse;
-import kr.co.gacha.auth.provider.AccessTokenProvider;
-import kr.co.gacha.user.dto.UserAccountDto;
-import kr.co.gacha.user.service.AccountCommonService;
+import com.example.msauserapitest.auth.dto.AuthenticatedAccountInfo;
+import com.example.msauserapitest.auth.dto.LoginRequest;
+import com.example.msauserapitest.auth.dto.TokenIssueResponse;
+import com.example.msauserapitest.auth.provider.AccessTokenProvider;
+import com.example.msauserapitest.user.dto.UserAccountDto;
+import com.example.msauserapitest.user.service.AccountCommonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

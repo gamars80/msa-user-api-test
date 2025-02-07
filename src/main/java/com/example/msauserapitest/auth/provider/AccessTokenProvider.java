@@ -1,8 +1,8 @@
 package com.example.msauserapitest.auth.provider;
 
-import kr.co.gacha.auth.provider.dto.AccessToken;
-import kr.co.gacha.auth.provider.dto.AccessTokenContent;
-import kr.co.gacha.auth.provider.dto.AccessTokenValidationResult;
+import com.example.msauserapitest.auth.provider.dto.AccessToken;
+import com.example.msauserapitest.auth.provider.dto.AccessTokenContent;
+import com.example.msauserapitest.auth.provider.dto.AccessTokenValidationResult;
 
 import java.util.Optional;
 

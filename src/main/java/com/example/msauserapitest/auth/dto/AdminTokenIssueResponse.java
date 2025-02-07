@@ -1,7 +1,7 @@
 package com.example.msauserapitest.auth.dto;
 
-import kr.co.gacha.auth.provider.dto.AccessToken;
-import kr.co.gacha.user.service.dto.RefreshTokenDto;
+import com.example.msauserapitest.auth.provider.dto.AccessToken;
+import com.example.msauserapitest.user.service.dto.RefreshTokenDto;
 import lombok.Builder;
 import lombok.Getter;
 

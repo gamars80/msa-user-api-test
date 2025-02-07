@@ -1,6 +1,6 @@
 package com.example.msauserapitest.auth.provider;
 
-import kr.co.gacha.user.RequestUser;
+import com.example.msauserapitest.user.RequestUser;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

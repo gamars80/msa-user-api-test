@@ -1,8 +1,8 @@
 package com.example.msauserapitest.auth.dto;
 
-import kr.co.gacha.user.RequestUser;
-import kr.co.gacha.user.enums.AccountType;
-import kr.co.gacha.user.enums.RoleType;
+import com.example.msauserapitest.user.RequestUser;
+import com.example.msauserapitest.user.enums.AccountType;
+import com.example.msauserapitest.user.enums.RoleType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import static kr.co.gacha.user.enums.RoleType.*;
+import static com.example.msauserapitest.user.enums.RoleType.*;
 
 public class AuthenticatedUser implements UserDetails, RequestUser {
 

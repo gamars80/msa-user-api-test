@@ -24,7 +24,6 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
@@ -34,24 +33,37 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
 
+    // handler interceptor
+    implementation "org.springframework:spring-webmvc:5.3.23"
+    implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+
     // QueryDsl
     implementation 'com.querydsl:querydsl-jpa:5.0.0'
     implementation 'com.querydsl:querydsl-apt:5.0.0'
 
     // Mysql
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
-    runtimeOnly "org.mariadb.jdbc:mariadb-java-client"
+    runtimeOnly 'mysql:mysql-connector-java'
     testRuntimeOnly "org.mariadb.jdbc:mariadb-java-client"
 
+    // Spring Data JPA 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Database Driver (MySQL 예시)
+    runtimeOnly 'mysql:mysql-connector-java'
+
+    // Test 의존성
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // H2
+    implementation 'com.h2database:h2'
+    testRuntimeOnly 'com.h2database:h2'
 
     // JsonWebToken
     implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.5'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 
-    //ModelMapper
-    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.2'
-    runtimeOnly 'com.h2database:h2'
 }
 
 tasks.named('test') {
