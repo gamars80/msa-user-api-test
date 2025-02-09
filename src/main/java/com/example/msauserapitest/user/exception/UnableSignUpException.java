@@ -1,6 +1,6 @@
 package com.example.msauserapitest.user.exception;
 
-import kr.co.gacha.exception.BadRequestException;
+import com.example.msauserapitest.auth.exception.BadRequestException;
 
 public class UnableSignUpException extends BadRequestException {
 

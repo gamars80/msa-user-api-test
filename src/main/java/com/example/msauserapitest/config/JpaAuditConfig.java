@@ -1,6 +1,5 @@
 package com.example.msauserapitest.config;
-
-import kr.co.gacha.auth.provider.LoginUserAuditorAware;
+import com.example.msauserapitest.auth.provider.LoginUserAuditorAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;

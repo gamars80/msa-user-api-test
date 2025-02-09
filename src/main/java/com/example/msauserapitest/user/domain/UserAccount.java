@@ -35,7 +35,7 @@ public class UserAccount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="user_account_id", columnDefinition = "bigint")
+    @Column(name="account_id", columnDefinition = "bigint")
     private final Long id = 0L;
 
     @CreatedDate

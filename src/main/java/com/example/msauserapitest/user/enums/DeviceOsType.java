@@ -1,6 +1,6 @@
 package com.example.msauserapitest.user.enums;
 
-import kr.co.gacha.utils.DescriptionEnum;
+import com.example.msauserapitest.utils.DescriptionEnum;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

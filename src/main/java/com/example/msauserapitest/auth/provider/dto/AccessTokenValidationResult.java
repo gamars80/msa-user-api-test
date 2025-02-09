@@ -1,9 +1,7 @@
 package com.example.msauserapitest.auth.provider.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
-
 import static lombok.AccessLevel.PRIVATE;
 
 @AllArgsConstructor(access = PRIVATE)

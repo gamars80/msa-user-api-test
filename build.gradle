@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.0.0'
+    id 'org.springframework.boot' version '3.4.2'
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -23,31 +23,44 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    set('springCloudVersion', "2024.0.0")
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
 dependencies {
+    // Reflections
+    implementation 'org.reflections:reflections:0.10.2'
+
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    //Eureka
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.4.2' // Spring Boot 3.x 사용
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:10.1.34' // Tomcat 10.x 이상 사용
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
+
+
     implementation 'org.springframework.boot:spring-boot-starter-validation'
+    // Spring Data JPA 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // handler interceptor
-    implementation "org.springframework:spring-webmvc:5.3.23"
-    implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
-
-    // QueryDsl
-    implementation 'com.querydsl:querydsl-jpa:5.0.0'
-    implementation 'com.querydsl:querydsl-apt:5.0.0'
+//    implementation "org.springframework:spring-webmvc:5.3.23"
+    implementation 'jakarta.servlet:jakarta.servlet-api:5.0.0' // Jakarta Servlet API 5.0.x 사용
 
     // Mysql
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
     runtimeOnly 'mysql:mysql-connector-java'
     testRuntimeOnly "org.mariadb.jdbc:mariadb-java-client"
-
-    // Spring Data JPA 의존성
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // Database Driver (MySQL 예시)
     runtimeOnly 'mysql:mysql-connector-java'
@@ -64,8 +77,39 @@ dependencies {
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.5'
     runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.5'
 
+    implementation 'org.hibernate.orm:hibernate-core:6.2.8.Final'
+
+
+    // queryDSL 설정
+    implementation "com.querydsl:querydsl-jpa:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+    implementation "com.querydsl:querydsl-core"
+    implementation "com.querydsl:querydsl-collections"
+    annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jakarta"
+    // querydsl JPAAnnotationProcessor 사용 지정
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api" // java.lang.NoClassDefFoundError (javax.annotation.Generated) 대응 코드
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api" // java.lang.NoClassDefFoundError (javax.annotation.Entity) 대응 코드
 }
 
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
+// Querydsl 설정부
+def generated = 'src/main/generated'
+
+// querydsl QClass 파일 생성 위치를 지정
+tasks.withType(JavaCompile) {
+    options.getGeneratedSourceOutputDirectory().set(file(generated))
+}
+
+// java source set 에 querydsl QClass 위치 추가
+sourceSets {
+    main.java.srcDirs += [ generated ]
+}
+
+// gradle clean 시에 QClass 디렉토리 삭제
+clean {
+    delete file(generated)
+}
+

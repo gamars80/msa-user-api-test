@@ -1,7 +1,8 @@
 package com.example.msauserapitest.auth.service;
 
-import kr.co.gacha.user.RequestUser;
-import kr.co.gacha.user.service.AuthenticatedUserFindService;
+
+import com.example.msauserapitest.user.RequestUser;
+import com.example.msauserapitest.user.service.AuthenticatedUserFindService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
