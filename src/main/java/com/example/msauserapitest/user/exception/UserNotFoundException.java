@@ -1,7 +1,7 @@
 package com.example.msauserapitest.user.exception;
 
 
-import com.example.msauserapitest.auth.exception.NotFoundException;
+import jakarta.ws.rs.NotFoundException;
 
 import java.time.LocalDate;
 
@@ -12,17 +12,14 @@ public class UserNotFoundException extends NotFoundException {
     private static final String CLIENT_MESSAGE = "사용자를 찾지 못했습니다.";
 
     public UserNotFoundException(final Long id) {
-        super(String.format("%s -> user id: %d", SERVER_MESSAGE, id),
-                "회원님의 계정이 탈퇴 처리됐어요.\n" +
-                        "서비스 이용이 필요하다면 다시 회원가입해 주세요.",
-                ERROR_CODE);
+        super(String.format("%s -> user id: %d", SERVER_MESSAGE, id));
     }
 
     public UserNotFoundException(String phoneNumber) {
-        super(String.format("%s -> phoneNumber : %s", SERVER_MESSAGE, phoneNumber), CLIENT_MESSAGE, ERROR_CODE);
+        super(String.format("%s -> phoneNumber : %s", SERVER_MESSAGE, phoneNumber));
     }
 
     public UserNotFoundException(String name, LocalDate birth, String phoneNumber) {
-        super(String.format("%s -> name : %s, birth : %s, phoneNumber : %s", SERVER_MESSAGE, name, birth, phoneNumber), CLIENT_MESSAGE, ERROR_CODE);
+        super(String.format("%s -> name : %s, birth : %s, phoneNumber : %s", SERVER_MESSAGE, name, birth, phoneNumber));
     }
 }

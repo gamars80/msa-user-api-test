@@ -1,6 +1,6 @@
 package com.example.msauserapitest.user.exception;
 
-import com.example.msauserapitest.auth.exception.BadRequestException;
+import jakarta.ws.rs.BadRequestException;
 
 public class UserIsStoppedUpdateException extends BadRequestException {
 
@@ -9,10 +9,10 @@ public class UserIsStoppedUpdateException extends BadRequestException {
     private static final String NOT_FOUND_USER = "유저 정보가 존재하지 않습니다.";
 
     public UserIsStoppedUpdateException() {
-        super(String.format(NOT_FOUND_STOP_REASON), NOT_FOUND_STOP_REASON, ERROR_CODE);
+        super(String.format(NOT_FOUND_STOP_REASON));
     }
 
     public UserIsStoppedUpdateException(final Long userId) {
-        super(String.format("%s -> userId: %s", NOT_FOUND_USER, userId), NOT_FOUND_USER, ERROR_CODE);
+        super(String.format("%s -> userId: %s", NOT_FOUND_USER, userId));
     }
 }

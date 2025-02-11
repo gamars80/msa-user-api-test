@@ -1,4 +1,4 @@
-package com.example.msauserapitest.auth.exception;
+package com.example.msauserapitest.exception;
 
 public abstract class InternalServerErrorException extends CustomException {
     protected InternalServerErrorException(final String serverMessage, final String clientMessage, final String errorCode) {

@@ -1,4 +1,4 @@
-package com.example.msauserapitest.auth.exception.dto;
+package com.example.msauserapitest.exception.dto;
 
 import lombok.Builder;
 import lombok.Getter;

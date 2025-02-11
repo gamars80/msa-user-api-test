@@ -1,6 +1,6 @@
 package com.example.msauserapitest.user.exception;
 
-import com.example.msauserapitest.auth.exception.BadRequestException;
+import jakarta.ws.rs.BadRequestException;
 
 public class InvalidBirthChangeException extends BadRequestException {
 
@@ -9,6 +9,6 @@ public class InvalidBirthChangeException extends BadRequestException {
     private static final String CLIENT_MESSAGE = "14세 미만의 아동으로 신청을 원하실 경우 [신청취소>회원가입]으로 신청해주세요.";
 
     public InvalidBirthChangeException(final Long userId) {
-        super(String.format("%s -> userId: %d", SERVER_MESSAGE, userId), CLIENT_MESSAGE, ERROR_CODE);
+        super(String.format("%s -> userId: %d", SERVER_MESSAGE, userId));
     }
 }

@@ -8,7 +8,6 @@ import com.example.msauserapitest.auth.provider.dto.AccessToken;
 import com.example.msauserapitest.auth.provider.dto.AccessTokenContent;
 import com.example.msauserapitest.auth.provider.dto.AccessTokenValidationResult;
 import com.example.msauserapitest.user.RequestUser;
-import com.example.msauserapitest.user.exception.UserNotFoundException;
 import com.example.msauserapitest.user.repository.UserRepository;
 import com.example.msauserapitest.user.service.AccountFindService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -81,8 +80,8 @@ public class AccessTokenAuthenticationFilter extends OncePerRequestFilter {
                 putUserInfo();
             }
             filterChain.doFilter(request, response);
-        } catch (UserNotFoundException uex) {
-            setErrorResponse(HttpStatus.UNAUTHORIZED, response, uex.getClientMessage());
+//        } catch (UserNotFoundException uex) {
+//            setErrorResponse(HttpStatus.UNAUTHORIZED, response, uex.getClientMessage());
         } catch (IllegalArgumentException | JwtException ex) {
             setErrorResponse(HttpStatus.UNAUTHORIZED, response, ex.getMessage());
         }

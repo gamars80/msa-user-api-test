@@ -1,6 +1,6 @@
-package com.example.msauserapitest.auth.exception;
+package com.example.msauserapitest.exception;
 
-public abstract class CustomException extends RuntimeException {
+public class CustomException extends RuntimeException {
     private final String errorCode;
     private final String clientMessage;
 

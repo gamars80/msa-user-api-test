@@ -1,4 +1,4 @@
-package com.example.msauserapitest.auth.exception;
+package com.example.msauserapitest.exception;
 
 public abstract class UnauthorizedException extends CustomException {
     protected UnauthorizedException(final String serverMessage, final String clientMessage, final String errorCode) {

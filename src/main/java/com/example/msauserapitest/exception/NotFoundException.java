@@ -1,4 +1,4 @@
-package com.example.msauserapitest.auth.exception;
+package com.example.msauserapitest.exception;
 
 public abstract class NotFoundException extends CustomException {
     protected NotFoundException(final String serverMessage, final String clientMessage, final String errorCode) {

@@ -1,6 +1,6 @@
 package com.example.msauserapitest.user.exception;
 
-import com.example.msauserapitest.auth.exception.BadRequestException;
+import jakarta.ws.rs.BadRequestException;
 
 public class UserAlreadyException extends BadRequestException {
 
@@ -9,10 +9,10 @@ public class UserAlreadyException extends BadRequestException {
     private static final String ALREADY_USER_PHONE_NUMBER = "이미 사용중인 폰번호입니다.";
 
     public UserAlreadyException(final Long userId) {
-        super(String.format("%s -> userId : %s", ALREADY_USER_ACCOUNT, userId), ALREADY_USER_ACCOUNT, ERROR_CODE);
+        super(String.format("%s -> userId : %s", ALREADY_USER_ACCOUNT, userId));
     }
 
     public UserAlreadyException(final String phoneNumber) {
-        super(String.format("%s -> phoneNumber : %s", ALREADY_USER_PHONE_NUMBER, phoneNumber), ALREADY_USER_PHONE_NUMBER, ERROR_CODE);
+        super(String.format("%s -> phoneNumber : %s", ALREADY_USER_PHONE_NUMBER, phoneNumber));
     }
 }

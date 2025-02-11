@@ -1,11 +1,12 @@
 package com.example.msauserapitest.logging;
 
-import com.example.msauserapitest.auth.exception.CustomException;
+import com.example.msauserapitest.exception.CustomException;
 import org.slf4j.MDC;
 import org.springframework.core.NestedRuntimeException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 
 public class MDCExceptionLogger {
     public static void getStringStringMap(Exception ex, String errorOrigin) {

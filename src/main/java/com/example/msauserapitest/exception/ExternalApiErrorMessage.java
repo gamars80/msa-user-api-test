@@ -1,4 +1,4 @@
-package com.example.msauserapitest.auth.exception;
+package com.example.msauserapitest.exception;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

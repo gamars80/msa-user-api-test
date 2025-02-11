@@ -27,18 +27,4 @@ public class AuthController {
     public ResponseEntity<TokenIssueResponse> createNotUserToken() {
         return ResponseEntity.ok(loginService.notUserToken());
     }
-
-    @GetMapping("")
-    public void welcome() {
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-        System.out.println("Ddddddddddddddddddd");
-    }
 }

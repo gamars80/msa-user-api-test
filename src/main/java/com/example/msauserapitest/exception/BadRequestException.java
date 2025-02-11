@@ -1,4 +1,4 @@
-package com.example.msauserapitest.auth.exception;
+package com.example.msauserapitest.exception;
 
 public abstract class BadRequestException extends CustomException {
     protected BadRequestException(final String serverMessage, final String clientMessage, final String errorCode) {
@@ -8,4 +8,5 @@ public abstract class BadRequestException extends CustomException {
     protected BadRequestException(final String serverMessage, final String clientMessage, final String errorCode, final Throwable cause) {
         super(serverMessage, clientMessage, errorCode, cause);
     }
+
 }
