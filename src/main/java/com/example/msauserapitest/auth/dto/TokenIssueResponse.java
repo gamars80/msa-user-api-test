@@ -2,6 +2,7 @@ package com.example.msauserapitest.auth.dto;
 
 import com.example.msauserapitest.auth.provider.dto.AccessToken;
 import com.example.msauserapitest.user.enums.JoinType;
+import com.example.msauserapitest.user.enums.RoleType;
 import lombok.*;
 
 @Getter
@@ -21,6 +22,7 @@ public class TokenIssueResponse {
     private String phoneNumber;
     private String profileImageUrl;
     private String nickname;
+    private RoleType roleType;
 
     public TokenIssueResponse(AccessToken accessToken, Long userId, String message) {
         this.accessToken = accessToken.getValue();

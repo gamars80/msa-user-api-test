@@ -21,10 +21,4 @@ public class AuthController {
     public ResponseEntity<TokenIssueResponse> createUserToken(@Valid @RequestBody LoginRequest request) {
         return ResponseEntity.ok(loginService.login(request));
     }
-
-    @ApiFor(roles = RoleType.ALL)
-    @PostMapping("/not-user-token")
-    public ResponseEntity<TokenIssueResponse> createNotUserToken() {
-        return ResponseEntity.ok(loginService.notUserToken());
-    }
 }

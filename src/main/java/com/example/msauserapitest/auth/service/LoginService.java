@@ -26,7 +26,7 @@ public class LoginService {
 
         if (user != null) {
             return TokenIssueResponse.builder()
-                    .accessToken(accessTokenProvider.create(user.getUserId()).getValue())
+                    .accessToken(accessTokenProvider.create(user.getUserId(), user.getRoleType()).getValue())
                     .userId(user.getUserId())
                     .loginId(user.getLoginId())
                     .name(user.getName())
@@ -34,6 +34,7 @@ public class LoginService {
                     .joinType(user.getJoinType())
                     .profileImageUrl(user.getProfileImageUrl())
                     .nickname(user.getNickname())
+                    .roleType(user.getRoleType())
                     .build();
         } else {
             return TokenIssueResponse.builder()
@@ -52,9 +53,4 @@ public class LoginService {
         return null;
     }
 
-    public TokenIssueResponse notUserToken() {
-        return TokenIssueResponse.builder()
-                .accessToken(accessTokenProvider.create(0L).getValue())
-                .build();
-    }
 }

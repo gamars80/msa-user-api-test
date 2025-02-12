@@ -3,6 +3,7 @@ package com.example.msauserapitest.user.dto;
 import com.example.msauserapitest.user.domain.User;
 import com.example.msauserapitest.user.domain.UserAccount;
 import com.example.msauserapitest.user.enums.JoinType;
+import com.example.msauserapitest.user.enums.RoleType;
 import com.example.msauserapitest.user.service.dto.UserDto;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public final class UserAccountDto {
     private JoinType joinType;
     private UserDto user;
     private Boolean isTester;
+    private RoleType roleType;
 
 
     public static UserAccountDto from(UserAccount account) {
@@ -28,7 +30,7 @@ public final class UserAccountDto {
         accountDto.loginId = account.getLoginId();
         accountDto.user = new UserDto(account.getUser());
         accountDto.profileImageUrl = account.getProfileImageUrl();
-
+        accountDto.roleType = account.getUser().getRoleType();
         return accountDto;
     }
 

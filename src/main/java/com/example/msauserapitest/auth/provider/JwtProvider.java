@@ -4,6 +4,7 @@ import com.example.msauserapitest.auth.provider.dto.AccessToken;
 import com.example.msauserapitest.auth.provider.dto.AccessTokenContent;
 import com.example.msauserapitest.auth.provider.dto.AccessTokenValidationResult;
 import com.example.msauserapitest.auth.utils.DateUtils;
+import com.example.msauserapitest.user.enums.RoleType;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -24,17 +25,17 @@ public class JwtProvider implements AccessTokenProvider, InitializingBean {
     private Key key;
 
     @Override
-    public AccessToken create(Long userId) {
-        return this.create(userId, false);
+    public AccessToken create(Long userId, RoleType roleType) {
+        return this.create(userId, false, roleType);
     }
 
     @Override
-    public AccessToken create(Long userId, Boolean isManager) {
+    public AccessToken create(Long userId, Boolean isManager, RoleType roleType) {
         LocalDateTime issuedDate = LocalDateTime.now();
         LocalDateTime expiredDate = issuedDate.plusMinutes(620620);
 
         Claims claims = Jwts.claims().setSubject(String.valueOf(userId));
-        claims.put("isManager", isManager);
+        claims.put("role", roleType);
 
         String accessToken = Jwts.builder()
                 .setClaims(claims)
