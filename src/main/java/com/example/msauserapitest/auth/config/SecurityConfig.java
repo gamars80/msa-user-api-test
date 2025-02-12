@@ -1,7 +1,7 @@
 package com.example.msauserapitest.auth.config;
 
 
-//import com.example.msauserapitest.auth.filter.AccessTokenAuthenticationFilter;
+import com.example.msauserapitest.auth.filter.AccessTokenAuthenticationFilter;
 import com.example.msauserapitest.config.scanner.RequestPathScanner;
 import com.example.msauserapitest.user.enums.RoleType;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +30,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableWebSecurity
 public class SecurityConfig {
     private final RequestPathScanner scanner;
-//    private final AccessTokenAuthenticationFilter accessTokenAuthenticationFilter;
+    private final AccessTokenAuthenticationFilter accessTokenAuthenticationFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -55,8 +55,8 @@ public class SecurityConfig {
                         .requestMatchers(requestPaths.get(RoleType.CUSTOMER).toArray(new String[0])).hasRole(RoleType.CUSTOMER.name())
                         .requestMatchers(requestPaths.get(RoleType.ADMIN).toArray(new String[0])).hasRole(RoleType.ADMIN.name())
                         .requestMatchers(requestPaths.get(RoleType.SUPER_ADMIN).toArray(new String[0])).hasRole(RoleType.SUPER_ADMIN.name())
-                        .anyRequest().authenticated());
-//                .addFilterBefore(accessTokenAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+                        .anyRequest().authenticated())
+                .addFilterBefore(accessTokenAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
